@@ -41,11 +41,8 @@ describe "Users" do
 
   	describe "failure" do
   		it "should not sign a user in" do
-<<<<<<< HEAD
   			integration_sign_in(User.new)
-=======
         integration_sign_in(User.new)
->>>>>>> updating-users
   			response.should have_selector("div.flash.error", :content => "Invalid")
   		end
   	end
