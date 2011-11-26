@@ -168,26 +168,43 @@ div.field, div.actions {
 h1.micropost {
 	margin-bottom: 0.3em;
 }
-table.microposts {
-	margin-top: 1em;
+ol.microposts {
+	margin: 0;
+	padding: 0;
+	padding-top: 1em;
+	list-style: none;
 }
-table.microposts tr {
-	height: 70px;
-}
-table.microposts tr td.gravatar {
+ol.microposts li {
 	border-top: 1px solid #ccc;
 	vertical-align: top;
-	width: 50px;
-}
-table.microposts tr td.micropost {
-	border-top: 1px solid #ccc;
-	vertical-align: top;
+	min-height: 50px;
+	height: auto !important;
+	height: 50px;
+	position: relative;
 	padding-top: 10px;
+	padding-bottom: 10px;
 }
-table.microposts tr td.micropost span.timestamp {
+ol.microposts li div.gravatar {
+	width: 50px;
+	position: absolute;
+	left: 0;
+	top: 10px;
+}
+table.front ol.microposts li div.micropost {
+	padding-left: 60px;
+} 
+ol.microposts li div.micropost {
+	padding-right: 4em;
+}
+ol.microposts li div.micropost span.timestamp {
 	display: block;
 	font-size: 85%;
 	color: #666;
+}
+ol.microposts li div.actions {
+	position: absolute;
+	right: 0;
+	top: 10px;
 }
 div.user_info img {
 	padding-right: 0.1em;
