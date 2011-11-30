@@ -149,6 +149,23 @@ describe UsersController do
       response.should_not have_selector("a", :content => "Delete")
     end
 
+    describe "followers/following" do
+
+      before(:each) do
+        other_user = Factory(:user, :email => Factory.next(:email))
+        other_user.follow!(@user)
+      end
+
+      it "should have the right follower/following counts" do
+        get :show, :id => @user
+        response.should have_selector("a", :href => following_user_path(@user),
+                                           :content => "0 following")
+        response.should have_selector("a", :href => followers_user_path(@user),
+                                           :content => "1 follower")
+      end
+
+    end
+
   end
 
   describe "GET 'new'" do
